@@ -103,6 +103,8 @@ class WSReportProxy {
 			JSONObject jsonToSend) throws JSONException {
 
 		jsonToSend.put("cid", ApplicationConstants.cid);
+		/*Will be enabled when server side is finsihed
+		jsonToSend.put("task", ApplicationConstants.task);*/
 		jsonToSend.put("sh", ApplicationConstants.sh);
 		jsonToSend.put("sw", ApplicationConstants.sw);
 		jsonToSend.put("ssi", ApplicationConstants.systemInfo.ConvertToJson());
