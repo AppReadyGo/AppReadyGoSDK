@@ -109,25 +109,7 @@ class CCServices {
 		}
 	}
 
-	/**
-	 * 
-	 * @param ctx
-	 * @return
-	 */
-	static int getDeviceOrientation(Context ctx) {
-
-		try {
-			Display display = ((WindowManager) ctx
-					.getSystemService(Context.WINDOW_SERVICE))
-					.getDefaultDisplay();
-
-			return display.getOrientation();
-		} catch (Exception ex) {
-			InternalLog.d(TAG,
-					"Error while getting Orientation " + ex.getMessage());
-			return 0;
-		}
-	}
+	
 
 	/**
 	 * 
@@ -341,5 +323,8 @@ class CCServices {
 	    	return null;
 	  }
 	}
+	
+	
+
 
 }
