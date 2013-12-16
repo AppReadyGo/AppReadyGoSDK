@@ -654,6 +654,7 @@ class FingerPrintService {
 			 	     ApplicationConstants.sw = display.getWidth(); 
 			         ApplicationConstants.sh = display.getHeight(); 
 			 		 ApplicationConstants.cid = (ApplicationConstants.cid == null) ? clientId : ApplicationConstants.cid;
+			 		 ApplicationConstants.task = CCServices.getTaskId(activity);
 			         ApplicationConstants.systemInfo = new WSSystemInfoData(activity.getApplicationContext());
 			         m_activeSession = new ArrayList<WSSessionData>();
 			         

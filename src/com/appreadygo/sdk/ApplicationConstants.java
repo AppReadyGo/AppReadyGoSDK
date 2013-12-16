@@ -50,6 +50,11 @@ class ApplicationConstants {
 	public static String cid = "0";   
 	
 	/**
+	 * task id, the id of the task client requested
+	 */
+	public static int task = 0;   
+	
+	/**
 	 * 
 	 */
 	public static WSSystemInfoData systemInfo;
