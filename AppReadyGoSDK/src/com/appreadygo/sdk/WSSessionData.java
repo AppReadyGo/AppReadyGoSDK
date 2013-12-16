@@ -339,7 +339,7 @@ class WSSessionData implements IWSJsonConvert
 		if (this.m_lastView == null || m_lastView.getViewPartLeft() != offsetX || m_lastView.getViewPartTop() != offsetY) 
 		{
 			InternalLog.d(TAG, "offsetX: "+ offsetX +", offsetY: " + offsetY);
-			int orientation =  CCServices.getDeviceOrientation(view.getContext());
+			int orientation =  Device.getDeviceOrientation(view.getContext());
 			String sessionEnd = CCServices.getGMTDateTimeAsString();
 			
 			WSViewAreaData currentViewpart = new WSViewAreaData(offsetX, offsetY, orientation, sessionEnd);

@@ -2,9 +2,12 @@ package com.appreadygo.sdk;
 
 import org.json.JSONObject;
 
+import com.appreadygo.sdk.Device.DeviceType;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
@@ -36,6 +39,7 @@ final class WSSystemInfoData implements IWSJsonConvert {
 			codeVersion = "na";	
 		}
 		jarVersion = "1-9.26";
+		deviceType = Device.getDeviceType(ctx);
 
 	}
 
@@ -89,5 +93,13 @@ final class WSSystemInfoData implements IWSJsonConvert {
 	String applicationVersion; //from Manifest
 	String codeVersion; //from Manifest
 	String jarVersion;
+	DeviceType deviceType;
+	
+	private static boolean isTablet(Context context) {
+	    return (context.getResources().getConfiguration().screenLayout
+	            & Configuration.SCREENLAYOUT_SIZE_MASK)
+	            >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+	}
+
 
 }

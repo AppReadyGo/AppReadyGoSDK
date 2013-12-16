@@ -84,7 +84,7 @@ class WSInnerTouchData implements IWSJsonConvert{
 				topOffest = topOffest / yPrecision;
 			}
 			
-			mOrientation = CCServices.getDeviceOrientation(view.getContext());
+			mOrientation = Device.getDeviceOrientation(view.getContext());
 			X = leftOffset;
 			Y = topOffest;
 			mPressure = event.getPressure();
