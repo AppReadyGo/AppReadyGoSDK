@@ -650,11 +650,15 @@ class FingerPrintService {
     	   	if (getProperties(activity)){
 			
 				try{
+					 
 				     Display display = ((WindowManager)(activity.getApplicationContext()).getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
-			 	     ApplicationConstants.sw = display.getWidth(); 
+			 	  
+				     ApplicationConstants.sw = display.getWidth(); 
 			         ApplicationConstants.sh = display.getHeight(); 
 			 		 ApplicationConstants.cid = (ApplicationConstants.cid == null) ? clientId : ApplicationConstants.cid;
-			 		 ApplicationConstants.task = CCServices.getTaskId(activity);
+			 		
+			 		 initializeTaskAndUserName(activity);
+			 		
 			         ApplicationConstants.systemInfo = new WSSystemInfoData(activity.getApplicationContext());
 			         m_activeSession = new ArrayList<WSSessionData>();
 			         
@@ -671,6 +675,26 @@ class FingerPrintService {
         }
         return ApplicationConstants.initialized;
     }
+
+    /*
+	 * Author: Philip
+	 * Initialize Task ID and UserName from Content Provider 
+	 */
+	private static boolean initializeTaskAndUserName(Activity activity) {
+		
+			
+		ApplicationData appData = ContentProvideAccessLayer.getApplicationData(activity);
+			
+		if (appData != null) { 
+			ApplicationConstants.task = appData.getTaskId();
+			ApplicationConstants.username = appData.getUsername();
+			return true;
+		}
+		else {
+			InternalLog.d(TAG, "Application Data Not found!");
+			return false;
+		}
+	}
 
 
 	private static boolean validateInit() {
