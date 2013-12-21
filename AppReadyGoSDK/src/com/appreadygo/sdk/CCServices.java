@@ -324,21 +324,7 @@ class CCServices {
 	  }
 	}
 
-	/*
-	 * Author: Philip
-	 * Returns Task ID filled by DollarTask via Content Provider 
-	 */
-	public static int getTaskId(Activity activity) {
-		
-		ApplicationData appData = ContentProvideAccessLayer.getApplicationData(activity);
-		if (appData != null) { 
-			return appData.getTaskId();
-		}
-		else {
-			InternalLog.d(TAG, "Task id is null, returning 0");
-			return 0;
-		}
-	}
+	
 	
 	
 

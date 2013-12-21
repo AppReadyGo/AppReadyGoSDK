@@ -55,6 +55,11 @@ class ApplicationConstants {
 	public static int task = 0;   
 	
 	/**
+	 * username, username of the tester
+	 */
+	public static String username = "empty";
+	
+	/**
 	 * 
 	 */
 	public static WSSystemInfoData systemInfo;
@@ -103,4 +108,6 @@ class ApplicationConstants {
 	public static boolean allowdebugnow = false;
 	
 	public static boolean disableScrollCheck = false;
+
+	
 }
