@@ -105,7 +105,7 @@ class WSReportProxy {
 		jsonToSend.put("cid", ApplicationConstants.cid);
 		
 		jsonToSend.put("task", ApplicationConstants.task);
-		jsonToSend.put("usr", ApplicationConstants.username);
+		jsonToSend.put("usr", ApplicationConstants.userId);
 		jsonToSend.put("sh", ApplicationConstants.sh);
 		jsonToSend.put("sw", ApplicationConstants.sw);
 		jsonToSend.put("ssi", ApplicationConstants.systemInfo.ConvertToJson());

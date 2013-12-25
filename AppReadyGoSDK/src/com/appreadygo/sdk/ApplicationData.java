@@ -2,18 +2,18 @@ package com.appreadygo.sdk;
 
 public class ApplicationData {
 	
-	 private Integer taskId;
+	 private int taskId;
 	 private String appId;
      private String appName;
-     private String username;
+     private int userId;
      private String packageName;
      
-     public ApplicationData(Integer taskId,String appId, String appName,String username, String packageName) {
+     public ApplicationData(Integer taskId,String appId, String appName,Integer userId, String packageName) {
 
 		 this.taskId = taskId;
 		 this.appId = appId;
 		 this.appName = appName;
-		 this.username = username;
+		 this.userId = userId;
 		 this.packageName = packageName;
 	}
 	
@@ -31,8 +31,8 @@ public class ApplicationData {
 	}
 
 
-	public String getUsername() {
-		return username;
+	public int getUserId() {
+		return userId;
 	}
 
 
