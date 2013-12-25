@@ -687,7 +687,7 @@ class FingerPrintService {
 			
 		if (appData != null) { 
 			ApplicationConstants.task = appData.getTaskId();
-			ApplicationConstants.username = appData.getUsername();
+			ApplicationConstants.userId = appData.getUserId();
 			return true;
 		}
 		else {

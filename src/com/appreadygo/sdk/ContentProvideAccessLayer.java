@@ -13,7 +13,7 @@ public class ContentProvideAccessLayer {
 	private static final String KEY_APPLICATION_NAME = "ApplicationName";
 	private static final String KEY_APPLICATION_ID = "ApplicationId";
 	private static final String KEY_TASK_ID = "TaskId";
-	private static final String KEY_USERNAME = "UserName";
+	private static final String KEY_USER_ID = "UserId";
 	    
 	/*
 	 * Author: Philip
@@ -24,8 +24,8 @@ public class ContentProvideAccessLayer {
 		try {
 	    	ApplicationData appData = null;
 	        
-	        int taskId;
-	        String appName = null, username = null, packageNameValue = null, appId = null;
+	        int taskId, userId;
+	        String appName = null, packageNameValue = null, appId = null;
 	        
 	        Cursor cApplicationData = activity.getContentResolver().query(DOLLAR_TASK_URI_TASK_DATA, null, selection/* KEY_PACKAGE_NAME +" = " + packageNameSearchCriteria*/ , null, null);
 	        
@@ -36,12 +36,12 @@ public class ContentProvideAccessLayer {
 	        	appId 	=  cApplicationData.getString(cApplicationData.getColumnIndex(KEY_APPLICATION_ID));
 	        	taskId =  cApplicationData.getInt(cApplicationData.getColumnIndex(KEY_TASK_ID));
 	        	appName = cApplicationData.getString(cApplicationData.getColumnIndex(KEY_APPLICATION_NAME));
-	        	username = cApplicationData.getString(cApplicationData.getColumnIndex(KEY_USERNAME));
+	        	userId = cApplicationData.getInt(cApplicationData.getColumnIndex(KEY_USER_ID));
 	        	packageNameValue = cApplicationData.getString(cApplicationData.getColumnIndex(KEY_PACKAGE_NAME));
 	      
 	        	InternalLog.d(TAG, "Task id:" + taskId);
 	        	
-	        	appData = new ApplicationData(taskId, appId, appName, username, packageNameValue);
+	        	appData = new ApplicationData(taskId, appId, appName, userId, packageNameValue);
 	        	
 	        	if (cApplicationData != null && !cApplicationData.isClosed())
 	            	cApplicationData.close();

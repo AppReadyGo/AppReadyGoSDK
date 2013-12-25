@@ -57,7 +57,7 @@ class ApplicationConstants {
 	/**
 	 * username, username of the tester
 	 */
-	public static String username = "empty";
+	public static int userId = -1;
 	
 	/**
 	 * 
