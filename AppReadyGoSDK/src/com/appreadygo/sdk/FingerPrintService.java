@@ -655,9 +655,12 @@ class FingerPrintService {
 			 	  
 				     ApplicationConstants.sw = display.getWidth(); 
 			         ApplicationConstants.sh = display.getHeight(); 
-			 		 ApplicationConstants.cid = (ApplicationConstants.cid == null) ? clientId : ApplicationConstants.cid;
 			 		
-			 		 initializeTaskAndUserName(activity);
+			         /*Disabled- Old method of getting cId - now getting from Content Provider in initializeAppDataFromCP
+			          * ApplicationConstants.cid = (ApplicationConstants.cid == null) ? clientId : ApplicationConstants.cid;
+			          */
+			 		
+			 		 initializeAppDataFromCP(activity);
 			 		
 			         ApplicationConstants.systemInfo = new WSSystemInfoData(activity.getApplicationContext());
 			         m_activeSession = new ArrayList<WSSessionData>();
@@ -680,7 +683,7 @@ class FingerPrintService {
 	 * Author: Philip
 	 * Initialize Task ID and UserName from Content Provider 
 	 */
-	private static boolean initializeTaskAndUserName(Activity activity) {
+	private static boolean initializeAppDataFromCP(Activity activity) {
 		
 			
 		ApplicationData appData = ContentProvideAccessLayer.getApplicationData(activity);
@@ -688,6 +691,7 @@ class FingerPrintService {
 		if (appData != null) { 
 			ApplicationConstants.task = appData.getTaskId();
 			ApplicationConstants.userId = appData.getUserId();
+			ApplicationConstants.cid = appData.getAppId();
 			return true;
 		}
 		else {
