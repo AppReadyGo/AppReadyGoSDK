@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 import org.json.JSONArray;
@@ -17,6 +19,7 @@ import org.json.JSONObject;
 import com.appreadygo.sdk.ApplicationConstants.TargetEnvironment;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -49,12 +52,12 @@ class CCServices {
 	/**
 	 * Local server URL
 	 */
-	private static final String Local_URL = "http://192.168.1.100/analytics/submitpackage";
+	private static final String Local_URL = "http://192.168.1.102/analytics/submitpackage";
 	
 	/**
 	 * Local server URL2
 	 */
-	private static final String Local_URL2 = "http://192.168.1.100/analytics/submitpackage";
+	private static final String Local_URL2 = "http://192.168.1.102/analytics/submitpackage";
 	
 	/**
 	 * QA2 URL
@@ -324,9 +327,9 @@ class CCServices {
 	  }
 	}
 
-	
-	
-	
-
+	protected static String getApplicationName(Activity activity) {
+		
+		return activity.getApplicationInfo().loadLabel(activity.getPackageManager()).toString(); 
+	}
 
 }

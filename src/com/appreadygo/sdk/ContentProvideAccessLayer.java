@@ -63,7 +63,7 @@ public class ContentProvideAccessLayer {
 	 */
 	public static ApplicationData getApplicationData(Activity activity){
 		
-		String selection = KEY_APPLICATION_ID + " = " + "'" + ApplicationConstants.cid + "'";
+		String selection = KEY_APPLICATION_NAME + " = " + "'" + CCServices.getApplicationName(activity) + "'";
 		return getApplicationData(activity, selection);
 		
 	}
